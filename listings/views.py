@@ -31,6 +31,31 @@ def listing(request, listing_id):
 def search(request):
     queryset_list = Listing.objects.order_by('-list_date')
 
+    # Keywords
+    keywords = request.GET.get('keywords', None)
+    if keywords:
+        queryset_list = queryset_list.filter(description__icontains=keywords)
+
+    # City
+    city = request.GET.get('city', None)
+    if city:
+        queryset_list = queryset_list.filter(city__iexact=city)
+
+    # State
+    state = request.GET.get('state', None)
+    if state:
+        queryset_list = queryset_list.filter(state__iexact=state)
+
+    # Bedrooms
+    bedrooms = request.GET.get('bedrooms', None)
+    if bedrooms:
+        queryset_list = queryset_list.filter(bedrooms__lte=bedrooms)
+
+    # Price
+    price = request.GET.get('price', None)
+    if price:
+        queryset_list = queryset_list.filter(price__lte=price)
+
     context = {
         'state_choices': state_choices,
         'bedroom_choices': bedroom_choices,
