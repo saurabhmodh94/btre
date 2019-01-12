@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render
 from django.core.paginator import Paginator
-
+from .choices import state_choices, bedroom_choices, price_choices
 # Create your views here.
 from .models import Listing
 
@@ -29,4 +29,12 @@ def listing(request, listing_id):
 
 
 def search(request):
-    return render(request, 'listings/search.html')
+    queryset_list = Listing.objects.order_by('-list_date')
+
+    context = {
+        'state_choices': state_choices,
+        'bedroom_choices': bedroom_choices,
+        'price_choices': price_choices,
+        'listings': queryset_list
+    }
+    return render(request, 'listings/search.html', context)
