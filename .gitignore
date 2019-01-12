@@ -1,6 +1,7 @@
 .venv
 .vscode
 static/
+media/
 
 *.pyc
 
