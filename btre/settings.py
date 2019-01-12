@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'pages',  # 'pages.apps.PagesConfig',
     'listings',
     'realtors',
+    'accounts',
 ]
 
 MIDDLEWARE = [
