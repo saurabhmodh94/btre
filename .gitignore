@@ -3,6 +3,7 @@ venv/
 .vscode
 .idea
 static/
+!btre/static/
 media/
 
 *.pyc
