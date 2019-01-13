@@ -154,8 +154,13 @@ EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = ''
-#Must generate specific password for your app in [gmail settings][1]
+# Must generate specific password for your app in [gmail settings][1]
 EMAIL_HOST_PASSWORD = ''
 
-#This did the trick
+# This did the trick
 # DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
