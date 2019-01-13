@@ -33,6 +33,8 @@
 <!-- Listing -->
 <section id="listing" class="py-4">
   <div class="container">
+    <!-- Alerts -->
+    {% include 'partials/_alerts.html' %}
     <a href="{% url 'listings' %}" class="btn btn-light mb-4"
       >Back To Listings</a
     >
@@ -184,7 +186,6 @@
               name="listing"
               class="form-control"
               value="{{ listing.title }}"
-              disabled
             />
           </div>
           <div class="form-group">
